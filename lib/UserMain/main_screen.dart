@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testing/ProductScreen.dart';
 import 'package:testing/UserMain/helpMenu.dart';
 import 'package:testing/reusable_widget/reusable_textformfield.dart';
 
@@ -137,10 +138,10 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
     'Tab8'
   ];
   List images = [
-    "https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&w=400",
-    "https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg?auto=compress&cs=tinysrgb&w=400"
-  ];
+    'images/slider1.jpg',
+    'images/slider2.jpg',
+    'images/slider3.jpg',
+    ];
   List names = ["Abc", "Xyz", "Dfg"];
   List recom_images = [
     'images/pic1.png',
@@ -152,7 +153,6 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
     'images/plant3.png','images/plant4.png','images/plant5.png',
     'images/plant6.png','images/plant7.png','images/plant8.png',
     'images/plant9.png'
-
   ];
 
   @override
@@ -240,7 +240,7 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
                             borderRadius: BorderRadius.circular(40),
                             image: DecorationImage(
                               colorFilter: ColorFilter.mode(
-                                  Colors.black.withOpacity(0.6),
+                                  Colors.black.withOpacity(0.3),
                                   BlendMode.darken),
                               image: NetworkImage('${images[index]}'),
                               fit: BoxFit.cover,
@@ -307,8 +307,6 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
                                         children: [
                                           Container(
                                             height: 200,
-                                            // width: double.infinity,
-
                                             decoration: BoxDecoration(
                                                 color: MyColors.card_light_color1,
                                                 borderRadius: BorderRadius.only(
@@ -425,10 +423,15 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
                     style: GoogleFonts.poppins(
                         fontSize: 16, fontWeight: FontWeight.w600),
                   ),
-                  Text(
-                    'View All',
-                    style: GoogleFonts.poppins(
-                        fontSize: 14, color: MyColors.button_color),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(),));
+                    },
+                    child: Text(
+                      'View All',
+                      style: GoogleFonts.poppins(
+                          fontSize: 14, color: MyColors.button_color),
+                    ),
                   )
                 ],
               ),
@@ -456,64 +459,69 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
                         return Container(
                           margin: EdgeInsets.symmetric(vertical: 0,horizontal: 5),
                           child: Card(
-                            child: Container(
-                              // padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: MyColors.card_light_color1,
-                                    ),
-                                    width: 200,
-                                    height: 200,
-                                    child: Image(
+                            child: GestureDetector(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(),));
+                              },
+                              child: Container(
+                                // padding: EdgeInsets.symmetric(vertical: 2, horizontal: 4),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        color: MyColors.card_light_color1,
+                                      ),
                                       width: 200,
                                       height: 200,
-                                      image: AssetImage('${mainImages[index]}'),
+                                      child: Image(
+                                        width: 200,
+                                        height: 200,
+                                        image: AssetImage('${mainImages[index]}'),
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    padding:
-                                    EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Marigold',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 16, fontWeight: FontWeight.w600),
-                                        ),
-                                        Text(
-                                          'Angiosperms',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 16, fontWeight: FontWeight.w400),
-                                        ),
-                                        Row(
-                                          children: [
-                                            Icon(Icons.circle, size: 8,color: Colors.green,),
-                                            SizedBox(width: 4,),
-                                            Text(
-                                              'Stock',
-                                              style: GoogleFonts.poppins(
-                                                fontSize: 14,
-                                                color: Colors.grey,
+                                    Container(
+                                      padding:
+                                      EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Marigold',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 16, fontWeight: FontWeight.w600),
+                                          ),
+                                          Text(
+                                            'Angiosperms',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 16, fontWeight: FontWeight.w400),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.circle, size: 8,color: Colors.green,),
+                                              SizedBox(width: 4,),
+                                              Text(
+                                                'Stock',
+                                                style: GoogleFonts.poppins(
+                                                  fontSize: 14,
+                                                  color: Colors.grey,
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        Text(
-                                          '\$100',
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              color: MyColors.button_color,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                          Text(
+                                            '\$100',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                color: MyColors.button_color,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -524,9 +532,6 @@ class _Main_screen_bodyState extends State<Main_screen_body> {
                 ],
               ),
             ),
-
-
-
           ],
         ))
       ]),

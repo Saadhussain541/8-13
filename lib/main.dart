@@ -9,8 +9,10 @@ import 'package:testing/Admin/Plant/FetchPlant.dart';
 import 'package:testing/HomeScreen.dart';
 import 'package:testing/LoginScreen.dart';
 import 'package:testing/PageView/mainPageView.dart';
+import 'package:testing/ProductScreen.dart';
 import 'package:testing/RegisterScreen.dart';
 import 'package:testing/UserMain/AccessoriesScreen.dart';
+import 'package:testing/UserMain/main_screen.dart';
 import 'package:testing/firebase_options.dart';
 
 import 'Admin/AdminHome.dart';
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // AFTER COMPLETING ALL THE WORK WE HAVE TO GIVE SPLASH SCREEN HERE
       home: MainHome(),
     );
   }

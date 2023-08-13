@@ -13,40 +13,46 @@ class AccessoriesScreen extends StatefulWidget {
 class _AccessoriesScreenState extends State<AccessoriesScreen> {
   final List<Map<String,dynamic>> accessories=[
     {
-      "title":"Cactus",
-      "price":"\$80",
-      "images":"images/plant1.png"
+      "title":"Grow Lights",
+      "price":"\$50",
+      "images":"images/growlight1.png"
 
     },
 
     {
-      "title":"Cactus",
-      "price":"\$80",
-      "images":"images/plant2.png"
+      "title":"Grow Lights",
+      "price":"\$20",
+      "images":"images/growlight2.png"
 
     },
     {
-      "title":"Cactus",
-      "price":"\$80",
-      "images":"images/plant3.png"
+      "title":"Grow Lights",
+      "price":"\$30",
+      "images":"images/growlight3.png"
 
     },
     {
-      "title":"Cactus",
-      "price":"\$80",
-      "images":"images/plant4.png"
+      "title":"Grow Lights",
+      "price":"\$40",
+      "images":"images/growlight4.png"
 
     },
     {
-      "title":"Cactus",
-      "price":"\$80",
-      "images":"images/plant5.png"
+      "title":"Mister In Gold",
+      "price":"\$90",
+      "images":"images/mister1.png"
 
     },
     {
-      "title":"Cactus",
-      "price":"\$80",
-      "images":"images/plant6.png"
+      "title":"Black Arclyric Mister",
+      "price":"\$100",
+      "images":"images/mister2.png"
+
+    },
+    {
+      "title":"Mister",
+      "price":"\$70",
+      "images":"images/mister3.png"
 
     },
 
@@ -106,7 +112,7 @@ class _AccessoriesScreenState extends State<AccessoriesScreen> {
                      crossAxisSpacing: 40,
                      mainAxisSpacing: 10,
                      crossAxisCount: 2,
-                     mainAxisExtent: 190,
+                     mainAxisExtent: 210,
                    ),
                    itemCount: accessories.length,
                    itemBuilder: (_,index){
@@ -125,7 +131,7 @@ class _AccessoriesScreenState extends State<AccessoriesScreen> {
                                decoration: BoxDecoration(
                                  borderRadius: BorderRadius.circular(20),
                                  image: DecorationImage(
-                                   
+
                                    image: AssetImage(
                                      '${accessories.elementAt(index)['images']}'
                                    ),

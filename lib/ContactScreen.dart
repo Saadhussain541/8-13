@@ -34,7 +34,7 @@ class _ContactScreenState extends State<ContactScreen> {
 
             decoration:BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/contactscreenbg3.jpg'),
+                image: AssetImage('images/contactscreenbg1.jpg'),
                 fit: BoxFit.cover
               )
             ),

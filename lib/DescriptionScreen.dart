@@ -4,7 +4,24 @@ import 'package:testing/reusable_widget/colors.dart';
 import 'package:testing/reusable_widget/text_widget.dart';
 
 class DescriptionScreen extends StatefulWidget {
-  const DescriptionScreen({super.key});
+
+  // String image;
+  // String name;
+  // String price;
+  // String quantity;
+  // String description;
+  // String growth;
+  // String category;
+  //
+  //
+  // DescriptionScreen(
+  //     {this.image,
+  //     this.name,
+  //     this.price,
+  //     this.quantity,
+  //     this.description,
+  //     this.growth,
+  //     this.category});
 
   @override
   State<DescriptionScreen> createState() => _DescriptionScreenState();
