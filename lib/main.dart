@@ -15,8 +15,11 @@ import 'package:testing/UserMain/AccessoriesScreen.dart';
 import 'package:testing/UserMain/main_screen.dart';
 import 'package:testing/firebase_options.dart';
 
+
 import 'Admin/AdminHome.dart';
 import 'Admin/Users/FetchUser.dart';
+import 'DescriptionScreen.dart';
+import 'PageView/editProfile.dart';
 import 'UserMain/main_home_navbar.dart';
 
 void main() async{

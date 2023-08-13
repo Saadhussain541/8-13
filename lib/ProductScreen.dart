@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:testing/DescriptionScreen.dart';
 import 'package:testing/reusable_widget/colors.dart';
 import 'package:testing/reusable_widget/text_widget.dart';
@@ -11,6 +12,26 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+
+
+  @override
+  void initState() {
+    var test=search_product.text="";
+    setState(() {
+      if(test.length>=1){
+        close==true;
+      }
+      else if(test.length<0){
+        close==false;
+      }
+
+    });
+    print(close);
+    super.initState();
+  }
+  TextEditingController search_product= TextEditingController();
+  bool close=false;
+  var fav_product=false;
   final List<Map<String,dynamic>> mainImages=[
     {
       "title":"Marigold",
@@ -100,6 +121,8 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
                 SizedBox(height: 20,),
                 TextFormField(
+                  controller: search_product,
+                  cursorColor: MyColors.button_color,
                   decoration: InputDecoration(
 
                     enabledBorder: OutlineInputBorder(
@@ -116,8 +139,14 @@ class _ProductScreenState extends State<ProductScreen> {
                         )
                     ),
                     hintText: "Search Products",
-                    prefixIcon: Icon(Icons.search),
-                    suffixIcon:Icon(Icons.clear),
+                    prefixIcon: Icon(Icons.search,color: Colors.black,),
+
+                    suffixIcon:GestureDetector(
+                      onTap: (){
+                         search_product.text="";
+
+                      },
+                        child: close?Icon(Icons.clear,color: Colors.black):Icon(Icons.clear)),
                   ),
                 ),
 
@@ -139,16 +168,16 @@ class _ProductScreenState extends State<ProductScreen> {
                     itemCount: mainImages.length,
                     itemBuilder: (_,index){
                       return Container(
-                        decoration:BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.grey.shade200
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(5),
-                              child: GestureDetector(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                          decoration:BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.grey.shade200
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              GestureDetector(
                                 onTap: (){
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => DescriptionScreen(),));
                                 },
@@ -156,7 +185,7 @@ class _ProductScreenState extends State<ProductScreen> {
 
                                   decoration: BoxDecoration(
                                     color: Colors.black12,
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
 
                                       image: AssetImage(
@@ -165,31 +194,35 @@ class _ProductScreenState extends State<ProductScreen> {
                                     ),
                                     // color: Colors.black
                                   ),
-                                  width: 140,
+                                  width: double.infinity,
                                   height: 110,
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: text_custome(text: '${mainImages.elementAt(index)['title']}', size: 14, fontWeight: FontWeight.w600),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: text_custome(text: '${mainImages.elementAt(index)['subtitle']}', size: 14, fontWeight: FontWeight.w400),
-                            ),
+                              SizedBox(height: 5,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  text_custome(text: '${mainImages.elementAt(index)['title']}', size: 14, fontWeight: FontWeight.w600),
 
-                            Row(
-                              children:[
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: text_custome(text: '${mainImages.elementAt(index)['price']}', size: 14, fontWeight: FontWeight.w600),
-                                ),
-                                IconButton(onPressed: (){}, icon: Icon(Icons.heart_broken,color: Colors.red,size:18))
-                              ],
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            ),
-                          ],
+                                  text_custome(text: '${mainImages.elementAt(index)['subtitle']}', size: 12, fontWeight: FontWeight.w400),
+
+                                ],
+                              ),
+
+
+                              Row(
+                                children:[
+                                  text_custome(text: '${mainImages.elementAt(index)['price']}', size: 14, fontWeight: FontWeight.w600),
+                                  IconButton(onPressed: (){
+                                    setState(() {
+                                      fav_product=!fav_product;
+                                    });
+                                  }, icon: Icon(fav_product?FontAwesomeIcons.gratipay:FontAwesomeIcons.heart,color: Colors.red,size:18))
+                                ],
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },

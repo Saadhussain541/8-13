@@ -16,6 +16,9 @@ class text_custome extends StatelessWidget {
       fontSize: size,
       fontWeight: fontWeight,
       color: color,
-    )),);
+    )),
+    textAlign: TextAlign.justify,
+      overflow: TextOverflow.ellipsis,
+    );
   }
 }

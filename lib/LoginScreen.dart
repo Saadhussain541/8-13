@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:testing/Admin/AdminHome.dart';
 import 'package:testing/HomeScreen.dart';
@@ -96,13 +97,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
 
                 children: [
-                  custom_field(label: "Enter Your Email",controller: _email,Errormsg: "Email is Required", prefixicon: Icon(Icons.email), surfixneed: false),
+                  custom_field(label: "Enter Your Email",controller: _email,Errormsg: "Email is Required", prefixicon: Icon(FontAwesomeIcons.at,size: 18,), surfixneed: false),
 
                   SizedBox(height: 20,),
 
-                  custom_field(label: "Enter Your Password",controller: _pass,Errormsg:  "Password is Required", prefixicon: Icon(Icons.key), surfixneed: true,surfixIcon: IconButton(onPressed: (){setState(() {
+                  custom_field(label: "Enter Your Password",controller: _pass,Errormsg:  "Password is Required", prefixicon: Icon(FontAwesomeIcons.lock,size: 18), surfixneed: true,surfixIcon: IconButton(onPressed: (){setState(() {
                     ischeck = !ischeck;
-                  });},icon: ischeck==false?Icon(Icons.panorama_fish_eye):Icon(Icons.remove_red_eye)),ispassword: ischeck==false?false:true,),
+                  });},icon: ischeck==false?Icon(Icons.visibility_off):Icon(Icons.visibility)),ispassword: ischeck==false?false:true,),
 
 
                   SizedBox(height: 20,),

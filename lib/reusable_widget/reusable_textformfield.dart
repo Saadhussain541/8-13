@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:testing/reusable_widget/colors.dart';
 import 'package:testing/reusable_widget/text_widget.dart';
 
 class custom_field extends StatelessWidget {
@@ -51,7 +52,7 @@ class custom_field extends StatelessWidget {
               floatingLabelBehavior: FloatingLabelBehavior.never,
               focusedBorder: InputBorder.none,
               border: InputBorder.none,
-              prefixIcon: Icon(Icons.email),
+              prefixIcon: prefixicon,
               focusColor: Colors.transparent,
               prefixIconColor: Colors.black,
             ):InputDecoration(
@@ -68,7 +69,8 @@ class custom_field extends StatelessWidget {
               prefixIconColor: Colors.black,
               suffixIcon: surfixIcon,
               suffixIconColor: Colors.black
-            )
+            ),
+            cursorColor: MyColors.button_color,
         ),
       ),
     );
